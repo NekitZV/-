@@ -265,10 +265,10 @@ int main()
     cout << "Print in words " << endl;
     acc.In_Words();
 
-    Account acc2 = acc; //êîíñòğóêòîğ êîïèğîâàíèÿ
-    Account* acc3 = new Account("Vasya", 12, 13, 14); //êîíñòğóêòîğ èíèöèàëèçàöèè
-    Account* acc4 = new Account(); //êîíñòğóêòîğ ïî óìîë÷àíèş
-    Account account_arr[4]; //ìàññèâ îáúåêòîâ
+    Account acc2 = acc; //ÃªÃ®Ã­Ã±Ã²Ã°Ã³ÃªÃ²Ã®Ã° ÃªÃ®Ã¯Ã¨Ã°Ã®Ã¢Ã Ã­Ã¨Ã¿
+    Account* acc3 = new Account("Vasya", 12, 13, 14); //ÃªÃ®Ã­Ã±Ã²Ã°Ã³ÃªÃ²Ã®Ã° Ã¨Ã­Ã¨Ã¶Ã¨Ã Ã«Ã¨Ã§Ã Ã¶Ã¨Ã¨
+    Account* acc4 = new Account(); //ÃªÃ®Ã­Ã±Ã²Ã°Ã³ÃªÃ²Ã®Ã° Ã¯Ã® Ã³Ã¬Ã®Ã«Ã·Ã Ã­Ã¨Ã¾
+    Account account_arr[4]; //Ã¬Ã Ã±Ã±Ã¨Ã¢ Ã®Ã¡ÃºÃ¥ÃªÃ²Ã®Ã¢
     account_arr[0] = acc;
     account_arr[1] = acc2;
 }
