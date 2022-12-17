@@ -36,7 +36,7 @@ void List::addHead(int n){
     if(count == 0){
         head = tail = temp;
     }else{
-        // иначе новый элемент - головной
+        // ГЁГ­Г Г·ГҐ Г­Г®ГўГ»Г© ГЅГ«ГҐГ¬ГҐГ­ГІ - ГЈГ®Г«Г®ГўГ­Г®Г©
         head = temp;
     }
     count++;
