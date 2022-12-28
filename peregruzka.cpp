@@ -254,6 +254,7 @@ void Account::In_Words()
     cout << str <<  endl; 
 }
 
+//Перегрузка ввода и вывода
 istream operator >> (istream& in, Account& acc)
 {
     return in >> acc.number;
