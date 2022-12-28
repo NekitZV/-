@@ -125,4 +125,17 @@ private:
 		showTree(currItem->getLeft(), indent + "  ");
 		showTree(currItem->getRight(), indent + "  ");
 	}
+	
+	void myfunc(BinaryTreeItem<T>* currItem, T itm,T number) {
+		int numbers[sizeof(itm)];
+		
+		for (int i = 0; i < sizeof(itm); i++)
+		{
+		    numbers[i] = number*itm[i];
+		}
+		
+		return numbers;
+		
+	}
+
 };
