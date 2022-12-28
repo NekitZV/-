@@ -126,6 +126,7 @@ private:
 		showTree(currItem->getRight(), indent + "  ");
 	}
 	
+	//метод возврата списка всех значений умноженных на заданное число
 	void myfunc(BinaryTreeItem<T>* currItem, T itm,T number) {
 		int numbers[sizeof(itm)];
 		
