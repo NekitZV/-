@@ -28,7 +28,7 @@ public:
         return temp;
     }
 }; 
- 
+
 void Account::Read() 
 { 
     cout << "Enter the Last Name: " << endl; 
@@ -254,8 +254,15 @@ void Account::In_Words()
     cout << str <<  endl; 
 }
 
+istream operator >> (istream& in, Account& acc)
+{
+    return in >> acc.number;
+}
 
- 
+ostream operator >> (istream& out, Account& acc)
+{
+    return out >> acc.name;
+}
  
 int main() 
 {   
