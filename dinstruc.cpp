@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//метод Del отвечает за удаление элементов из списка
 
 struct Node{
     int data;
