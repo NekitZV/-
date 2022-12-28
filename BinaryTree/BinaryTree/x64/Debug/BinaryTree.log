@@ -1,0 +1,3 @@
+﻿  BinaryTree.cpp
+D:\C++\BinaryTree\BinaryTree\BinarTree.h(78): warning C4715: BinaryTree<int>::remove: значение возвращается не при всех путях выполнения
+  BinaryTree.vcxproj -> D:\C++\BinaryTree\x64\Debug\BinaryTree.exe
