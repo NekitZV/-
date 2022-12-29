@@ -1,124 +1,116 @@
 #include <iostream>
-#include <sstream>
+#include <string>
+#include <cmath>
 using namespace std;
 
-class Money
-{
-    long roubles;
-    unsigned int copecks;
-    float wholeSum;
-    void splitUp()
-    {
-        roubles = (int)wholeSum;
-        copecks = (int)((wholeSum - (int)wholeSum) * 100);
-    };
+
+class Array {
 public:
-    void get()
+static const int n = 16;
+int array_size;
+unsigned char array[n];
+
+
+Array () {
+    
+    array_size = sizeof array / sizeof array[0];
+    
+    for (int counter = 0; counter < array_size; counter ++) array[counter] = '0';
+}
+
+
+unsigned char & operator[] (int index) {
+    if (index >= 0 and index < array_size){
+    	return array[index];
+    }
+    else cout << "error";
+}
+
+friend ostream& operator <<(ostream& out, Array& a)
+{
+    for(int index = 0; index < a.array_size; index++)
     {
-        cin >> wholeSum;
-        splitUp();
-    };
-    string show()
-    {
-        stringstream out;
-        string str;
-        out << roubles << ",";
-        if (copecks < 10)
-        {
-            out << "0";
-        }
-        out << copecks;
-        str = out.str();
-        return str;
-    };
-    Money operator+ (Money arg)
-    {
-        Money temp;
-        temp.wholeSum = this->wholeSum + arg.wholeSum;
-        temp.splitUp();
-        return temp;
-    };
-    Money operator- (Money arg)
-    {
-        Money temp;
-        temp.wholeSum = this->wholeSum - arg.wholeSum;
-        temp.splitUp();
-        return temp;
-    };
-    float operator/ (Money arg)
-    {
-        float temp;
-        temp = this->wholeSum / arg.wholeSum;
-        return temp;
-    };
-    Money operator/ (float arg)
-    {
-        Money temp;
-        temp.wholeSum = this->wholeSum / arg;
-        temp.splitUp();
-        return temp;
-    };
-    Money operator* (float arg)
-    {
-        Money temp;
-        temp.wholeSum = this->wholeSum * arg;
-        temp.splitUp();
-        return temp;
-    };
-    bool operator== (Money arg)
-    {
-        return (this->wholeSum == arg.wholeSum);
-    };
-    bool operator!= (Money arg)
-    {
-        return (this->wholeSum != arg.wholeSum);
-    };
-    bool operator> (Money arg)
-    {
-        return (this->wholeSum > arg.wholeSum);
-    };
-    bool operator< (Money arg)
-    {
-        return (this->wholeSum < arg.wholeSum);
-    };
-    bool operator>= (Money arg)
-    {
-        return (this->wholeSum >= arg.wholeSum);
-    };
-    bool operator<= (Money arg)
-    {
-        return (this->wholeSum <= arg.wholeSum);
-    };
+        out << (int)a.array[index] << ",";
+    }
+    out << endl;
+    return out;
+}
+
+int getSize(){
+	return array_size;
+}
+
+virtual unsigned char summator(unsigned char b[n]) {
+    for (int counter = 0; counter < array_size; counter ++) array[counter] = array[counter] + b[counter];
+    return *array;
+}
 };
 
-class Cursor
-{
-private:
-  int x;
-  int y;
-  int size;
-  char shape;
+class Hex : public Array {
+	unsigned char hexarr[100];
 
 public:
-  Cursor(int x_coord, int y_coord, int size_cursor, char shape_cursor)
-    : x(x_coord), y(y_coord), size(size_cursor), shape(shape_cursor)
-  {
-  }
+virtual unsigned char summator(unsigned char b[n]) {
+    for (int counter = 0; counter < 100; counter ++) hexarr[counter] = hexarr[counter] + b[counter];
+    return *hexarr;
+}
+Hex () { 
+    for (int counter = 0; counter < 100; counter ++) array[counter] = '0';
+}
+unsigned char & operator[] (int index) {
+    if (index >= 0 and index < 100) return hexarr[index];
+    else cout << "error";
+}
 
-  void setShape(char shape_cursor)
-  {
-    shape = shape_cursor;
-  }
-
-  void setCoords(int x_coord, int y_coord)
-  {
-    x = x_coord;
-    y = y_coord;
-  }
-
-  void setSize(int size_cursor)
-  {
-    if (size_cursor >= 1 && size_cursor <= 15)
-      size = size_cursor;
-  }
 };
+
+
+class Money : public Array {
+	unsigned char cop[4];
+	long rubles[50];
+
+
+public:
+virtual unsigned char summator(unsigned char b[n]) {
+    for (int counter = 0; counter < 100; counter ++) cop[counter] = cop[counter] + b[counter];
+    return *cop;
+}
+Money () { 
+    for (int counter = 0; counter < 100; counter ++) rubles[counter] = '0';
+    for (int counter = 0; counter < 4; counter ++) cop[counter] = '0';
+}
+unsigned char & operator[] (int index) {
+    if (index >= 0 and index < 100){
+    	return cop[index];
+    }
+    else cout << "error";
+}
+
+};
+
+
+
+
+int main()
+{
+	unsigned char aro[16];
+	setlocale(LC_ALL, "Russian");
+	Array ar;
+	for (int i = 0; i < ar.getSize(); ++i)
+	{
+		cout << ar[i] << " ";
+		cout << endl;
+	}
+	cout << "--------------" << endl;
+ 	//Array ar2;
+	aro[5] = '5';
+	aro[4] = '3';
+	ar.summator(aro);
+	for (int i = 0; i < ar.getSize(); ++i)
+	{
+		cout << ar[i] << " ";
+		cout << endl;
+	}
+
+	return 0;
+}
