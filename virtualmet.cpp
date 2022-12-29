@@ -90,3 +90,35 @@ public:
         return (this->wholeSum <= arg.wholeSum);
     };
 };
+
+class Cursor
+{
+private:
+  int x;
+  int y;
+  int size;
+  char shape;
+
+public:
+  Cursor(int x_coord, int y_coord, int size_cursor, char shape_cursor)
+    : x(x_coord), y(y_coord), size(size_cursor), shape(shape_cursor)
+  {
+  }
+
+  void setShape(char shape_cursor)
+  {
+    shape = shape_cursor;
+  }
+
+  void setCoords(int x_coord, int y_coord)
+  {
+    x = x_coord;
+    y = y_coord;
+  }
+
+  void setSize(int size_cursor)
+  {
+    if (size_cursor >= 1 && size_cursor <= 15)
+      size = size_cursor;
+  }
+};
